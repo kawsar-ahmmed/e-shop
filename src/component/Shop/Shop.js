@@ -30,10 +30,9 @@ const Shop = () => {
                 }
             </div>
 
-            <div className="order-container">
-                
+            <div className="order-container">            
                 <h3>Product items : {cart.length}</h3>
-                
+                <Cart></Cart>
                 {
                     cart.map(cart => <Cart
                     key = {cart.id}

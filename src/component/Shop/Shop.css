@@ -8,3 +8,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
+.order-container {
+    background: #FFE0B3;
+    margin: 0px 10px;
+    padding: 0px 30px;
+}
