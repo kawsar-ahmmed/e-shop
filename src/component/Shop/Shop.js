@@ -12,10 +12,20 @@ const Shop = () => {
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
-    const handleAddToCart = (product) => {
-        const newCart = [...cart, product];
+    const handleAddToCart = (selectedProduct) => {
+        // eslint-disable-next-line eqeqeq
+        let newCart = [];
+        const exists = cart.find(product=> product.id === selectedProduct);
+        if (!exists){
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+        }
+        else {
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists +1;
+            newCart = [...rest, exists];
+        }
         setCart(newCart)
-        console.log(newCart)
     }
     // console.log(product)
     return (
@@ -30,15 +40,10 @@ const Shop = () => {
                 }
             </div>
 
-            <div className="order-container">            
-                <h3>Product items : {cart.length}</h3>
-                <Cart></Cart>
-                {
-                    cart.map(cart => <Cart
-                    key = {cart.id}
-                    cart = {cart}
-                    ></Cart>)
-                }
+            <div className="order-container">           
+                <Cart cart = {cart}
+                key={cart.id}
+                ></Cart>
             </div>
         </div>
     );
