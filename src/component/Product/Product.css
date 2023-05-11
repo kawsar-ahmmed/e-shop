@@ -1,0 +1,24 @@
+.product img {
+    width: 100%;
+}
+.product {
+    border: 1px solid;
+    padding: 15px;
+    border-radius: 8px;
+}
+.product img {
+    border-radius: 8px;
+}
+.button button {
+    border: none;
+    background-color: orange;
+    padding: 15px 23px;
+    color: black;
+    font-size: 16px;
+    width: 100%;cursor: pointer;
+    border-radius: 8px;
+}
+.button button:hover {
+    background-color: green;
+    color: white;
+}
